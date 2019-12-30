@@ -99,6 +99,8 @@ RUN $ORACLE_BASE/oraInventory/orainstRoot.sh && \
     $ORACLE_HOME/root.sh
 
 USER oracle
+RUN mkdir -p /home/oracle/MyFiles/MyProjects
+
 WORKDIR /home/oracle
 
 VOLUME ["$ORACLE_BASE/oradata"]
