@@ -60,7 +60,18 @@ RUN chmod ug+x $INSTALL_DIR/*.sh && \
     $INSTALL_DIR/$SETUP_LINUX_FILE && \
     rm -rf $INSTALL_DIR
 
+RUN yum update
 
+# for ping
+RUN yum install -y iputils
+# for vi
+RUN yum install -y vim
+# for python 3.x (including pip)
+RUN yum install -y python3
+# for git
+RUN yum install -y git
+# for sudo
+RUN yum install -y sudo
 
 #############################################
 # -------------------------------------------
@@ -99,7 +110,7 @@ RUN $ORACLE_BASE/oraInventory/orainstRoot.sh && \
     $ORACLE_HOME/root.sh
 
 USER oracle
-RUN mkdir -L /home/oracle/MyFiles/MyProjects
+RUN mkdir -p /home/oracle/MyFiles/MyProjects
 WORKDIR /home/oracle
 
 VOLUME ["$ORACLE_BASE/oradata"]
