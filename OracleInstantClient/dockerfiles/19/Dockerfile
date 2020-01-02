@@ -72,6 +72,19 @@ RUN  yum -y install oracle-release-el7 && yum-config-manager --enable ol7_oracle
      yum -y install oracle-instantclient${release}.${update}-basic oracle-instantclient${release}.${update}-devel oracle-instantclient${release}.${update}-sqlplus && \
      rm -rf /var/cache/yum
 
+# for ping
+RUN yum install -y iputils
+# for vi
+RUN yum install -y vim
+# for python 3.x (including pip)
+RUN yum install -y python3
+# for git
+RUN yum install -y git
+# for sudo
+RUN yum install -y sudo
+# for docker
+#RUN yum install -y docker.io
+
 # Uncomment if the tools package is added
 # ENV PATH=$PATH:/usr/lib/oracle/${release}.${update}/client64/bin
 
